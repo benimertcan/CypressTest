@@ -27,3 +27,12 @@ describe('Hatalı durumlarda beklenen hata mesajları görünüyor ve buton disa
         cy.get('[data-cy="buttonInput"]').should('be.disabled');
       })
   })
+  describe('Başarılı form doldurulduğunda submit edebiliyorum', () => {
+    it('Success sayfasını açabiliyorum', () => {
+      cy.visit('http://localhost:5173/')
+      cy.get('[data-cy="emailInput"]').type("erdem.guntay@wit.com.tr")
+      cy.get('[data-cy="passwordInput"]').type("9fxIH0GXesEwH_I")
+      cy.get('[data-cy="termsInput"]').check()
+      cy.get('[data-cy="buttonInput"]').not('be.disabled')
+    })
+  })
